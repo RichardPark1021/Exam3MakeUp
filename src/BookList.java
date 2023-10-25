@@ -6,8 +6,6 @@ import java.util.List;
 
 public class BookList {
     public static void main(String[] args) {
-        BookList booklist = new BookList();
-
         List<Book> books = new ArrayList<>();
 
         try(BufferedReader reader = new BufferedReader(new FileReader("src/Nobel.csv"))) {
