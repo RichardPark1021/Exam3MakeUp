@@ -10,7 +10,16 @@ public class BookList {
 
         try(BufferedReader reader = new BufferedReader(new FileReader("src/Nobel.csv"))) {
             String line;
-            reader.readLine();
+            while((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+
+        try(BufferedReader reader = new BufferedReader(new FileReader("src/Nobel.csv"))) {
+            String line;
 
             while((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
@@ -24,11 +33,6 @@ public class BookList {
             }
         } catch(IOException e) {
             e.printStackTrace();
-        }
-
-        //original Order
-        for(Book book : books) {
-            System.out.println(book);
         }
 
         Collections.sort(books, Comparator.comparingInt(Book::getYearPublished));
